@@ -1,5 +1,7 @@
 # W-Rookie
 
+[한국어](#w-rookie) · [English](#w-rookie-english)
+
 [![Tests](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/actions/workflows/tests.yml/badge.svg)](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/actions/workflows/tests.yml)
 [![Release](https://img.shields.io/github/v/release/W-Rookie/W-Rookie-Document-Image-Formatter?display_name=tag)](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
@@ -734,5 +736,775 @@ scripts/stress_test.py    # 대용량 스트레스 테스트
 ```
 
 ## 라이선스
+
+[MIT License](LICENSE)
+
+---
+
+<a id="w-rookie-english"></a>
+
+# W-Rookie — English
+
+[한국어](#w-rookie) · [English](#w-rookie-english)
+
+> A cross-platform desktop application for processing DOCX documents on Windows, macOS, and Linux, with additional HWP and HWPX support on Windows
+
+W-Rookie automatically finds pictures in documents, adjusts their **physical width and height in mm or cm**, centers them, and applies a **1 pt black border**. It can process multiple files or folders in one batch and saves the results as new files by default, preserving the originals.
+
+- Default configuration: `Smart Center + Keep Original Size + Black 1 pt Border + Save as New File`
+- Supported formats: `.docx`, `.hwp`, `.hwpx`
+- Local processing: documents are not uploaded to an external server
+- Large DOCX support: media data is streamed instead of being fully expanded in memory
+
+All regular user features are available through the same GUI. `run.bat`, `python -m docpicalign`, `w-rookie`, and `w-rookie-gui` open the same desktop interface. A separate command-line interface is available only for developers who need automation.
+
+## Downloads by operating system
+
+- [Windows ZIP](https://drive.google.com/file/d/10pr_sQveMl3ituhoDNJpSS3kXQBtQ1Lk/view?usp=drivesdk)
+- [macOS ZIP](https://drive.google.com/file/d/1MFm6Afebd-pldynQ5diHQOr4dMXuxIbS/view?usp=drivesdk)
+- [Linux ZIP](https://drive.google.com/file/d/1Bt4AmIgCE9-aVGxa8OXUWrtrEqdmBkB0/view?usp=drivesdk)
+- [Complete source package for GitHub](https://drive.google.com/file/d/1wEf-H_U-wUQqagWPwvtXjti1kwUGmin1/view?usp=drivesdk)
+
+---
+
+## English table of contents
+
+1. [Requirements](#en-1-requirements)
+2. [Installation and launch by operating system](#en-2-installation-and-launch-by-operating-system)
+3. [Quick start](#en-3-quick-start)
+4. [GUI and features](#en-4-gui-and-features)
+5. [Security scanning](#en-5-security-scanning)
+6. [Alignment and picture size](#en-6-alignment-and-picture-size)
+7. [Saving and output files](#en-7-saving-and-output-files)
+8. [DOCX notes](#en-8-docx-notes)
+9. [HWP and HWPX notes](#en-9-hwp-and-hwpx-notes)
+10. [Safe testing](#en-10-safe-testing)
+11. [Large-file processing](#en-11-large-file-processing)
+12. [Troubleshooting](#en-12-troubleshooting)
+13. [Development, testing, and native builds](#en-13-development-testing-and-native-builds)
+14. [Limitations](#en-14-limitations)
+15. [Uninstallation and reset](#en-15-uninstallation-and-reset)
+
+---
+
+<a id="en-1-requirements"></a>
+
+## 1. Requirements
+
+### Required environment
+
+- Windows 10/11, a current macOS release, or desktop Linux
+- Python 3.10 or later
+- Approximately 200 MB or more of free space for installation
+
+| Operating system | Supported documents | Install | Launch |
+|---|---|---|---|
+| Windows | DOCX, HWP, HWPX | `setup.bat` | `run.bat` |
+| macOS | DOCX | `setup.command` | `run.command` |
+| Linux | DOCX | `./setup.sh` | `./run.sh` |
+
+### Additional requirements for HWP/HWPX
+
+- A Windows PC with Hancom Office Hangul installed
+- The `pywin32` Python automation module
+  - `setup.bat` installs it automatically.
+
+Microsoft Word and Hancom Office are not required when processing DOCX files only.
+
+---
+
+<a id="en-2-installation-and-launch-by-operating-system"></a>
+
+## 2. Installation and launch by operating system
+
+Download the ZIP package for your operating system. The first installation requires an internet connection to download Python packages. Do not run W-Rookie from inside the ZIP archive; **extract all files first**.
+
+### 2-1. Windows instructions
+
+Package: `W-Rookie-v1.4.1-Windows.zip`
+
+#### Preparation
+
+1. Use Windows 10 or Windows 11.
+2. Install Python 3.10 or later from [Python for Windows](https://www.python.org/downloads/windows/).
+3. If available on the first installer screen, select `Add python.exe to PATH`.
+4. Install Hancom Office Hangul if you also need HWP/HWPX support. Word or Hangul is not required for DOCX-only use.
+
+#### First-time installation
+
+1. Right-click the Windows ZIP and select **Extract All**.
+2. Open the extracted `W-Rookie-v1.4.1-Windows` folder.
+3. Double-click `setup.bat`.
+4. Keep the window open while steps `[1/4]` through `[4/4]` complete.
+5. Installation succeeded when `Setup completed successfully.` appears.
+6. Press any key to close the installation window.
+
+If setup fails, inspect `setup-error.log` in the same folder. If you launch `run.bat` before an environment has been installed, it automatically starts `setup.bat`.
+
+#### Launching the program
+
+1. Double-click `run.bat` in the same folder.
+2. It is normal for a Command Prompt window to appear briefly and then close.
+3. The launch succeeded when the `W-Rookie · Document Picture Auto Editor` GUI appears.
+
+If the GUI does not appear, inspect `w-rookie-error.log`. For later launches, run only `run.bat`; you do not need to repeat `setup.bat`.
+
+#### Processing documents on Windows
+
+1. Start with a test copy rather than an important original document.
+2. Use **Add Files** or **Add Folder** to add DOCX, HWP, or HWPX documents.
+3. Select **Smart Center (Recommended)** for typical documents.
+4. To change picture dimensions, enable **Resize Pictures**.
+5. Enter the required width and height, then select `mm` or `cm`. You may enter only one dimension.
+6. Enable **Keep Aspect Ratio** for proportional resizing. Disable it only when both exact dimensions must be forced.
+7. Keep the default picture border at black and `1.0 pt`.
+8. Select **Save as New File (Preserve Original)**.
+9. Enable **Additional Windows Defender Scan (Recommended)** when available.
+10. Select **Start Processing** and wait until the status changes to `Completed`.
+11. Open the output file with `_사진정렬` in the original folder and check its dimensions, alignment, and border.
+
+**Center on Page Horizontally and Vertically** places every picture object in the exact center of its page. Multiple pictures on the same page may overlap, so Smart Center is recommended for most documents.
+
+#### If HWP/HWPX processing fails on Windows
+
+1. Install Hancom Office Hangul and apply its latest updates.
+2. Close the document in Hangul before processing it.
+3. Run **Environment Diagnostics** in W-Rookie.
+4. If necessary, enable **Show HWP Processing Window** and try again.
+
+### 2-2. macOS instructions
+
+Package: `W-Rookie-v1.4.1-macOS.zip` — DOCX only.
+
+1. Install Python 3.10 or later from [Python for macOS](https://www.python.org/downloads/macos/).
+2. Fully extract the macOS ZIP.
+3. Control-click `setup.command` and select **Open**.
+4. Close the Terminal window after the success message appears.
+5. Control-click `run.command` and select **Open**.
+6. Add DOCX files in the GUI, optionally set their dimensions in mm/cm, and process them with Smart Center, a 1.0 pt border, and Save as New File.
+
+For regular use, launch only `run.command`. To use Terminal, run `./setup.sh` and then `./run.sh` from the extracted folder. If macOS shows a security prompt, inspect it under **System Settings → Privacy & Security**. Never add a security exception for a file from an unknown source.
+
+### 2-3. Linux instructions
+
+Package: `W-Rookie-v1.4.1-Linux.zip` — DOCX only.
+
+1. Install Python 3.10 or later, `venv`, and Tkinter.
+2. Fully extract the Linux ZIP.
+3. Open a terminal in the extracted folder.
+4. Run:
+
+```bash
+chmod +x setup.sh run.sh
+./setup.sh
+./run.sh
+```
+
+Example for Debian/Ubuntu:
+
+```bash
+sudo apt install python3 python3-venv python3-tk
+```
+
+For later launches, run only `./run.sh`. A graphical desktop session is required; the GUI may not appear in a server-only or SSH-only environment.
+
+### 2-4. When the operating system displays a security warning
+
+Executables produced by GitHub Actions are not currently signed with a commercial code-signing certificate. Windows SmartScreen or macOS Gatekeeper may therefore display an `Unknown publisher` or `Unidentified developer` warning.
+
+> **Do not disable Windows Defender, SmartScreen, Gatekeeper, your firewall, AppArmor, or SELinux globally.** Disabling these protections may allow unrelated malicious files to run.
+
+Before allowing W-Rookie to run, verify all of the following:
+
+1. Confirm that the file came from the [official GitHub Releases page](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases).
+2. Compare the downloaded file's SHA-256 value with the release's `SHA256SUMS.txt`.
+3. Confirm that the filename and version match the W-Rookie release you intended to download.
+4. If antivirus software reports a specific malware name, do not create an exception. Stop and report the detection name and SHA-256 value in a GitHub Issue.
+
+#### Windows 10/11
+
+1. Right-click the ZIP file and open **Properties**.
+2. Only after the official release and hash have been verified, select **Unblock** if that option appears, then apply the change.
+3. If SmartScreen appears, select **More info**, verify the filename and publisher information again, and then choose **Run anyway**.
+4. If Defender detects an actual threat, do not disable Defender; cancel the launch.
+
+Check SHA-256 in PowerShell:
+
+```powershell
+Get-FileHash .\W-Rookie-v1.4.1-Windows.zip -Algorithm SHA256
+```
+
+#### macOS
+
+1. In Finder, Control-click the app or `run.command` and select **Open**.
+2. If necessary, use **System Settings → Privacy & Security → Open Anyway**.
+3. Do not use commands such as `sudo spctl --master-disable`, which disable Gatekeeper globally.
+
+Check SHA-256 in Terminal:
+
+```bash
+shasum -a 256 W-Rookie-v1.4.1-macOS.zip
+```
+
+#### Linux
+
+After verifying the official archive's hash, use `chmod +x setup.sh run.sh` to grant execute permission only to W-Rookie's scripts. Do not disable AppArmor, SELinux, or your distribution's security policy.
+
+```bash
+sha256sum W-Rookie-v1.4.1-Linux.zip
+```
+
+### 2-5. Common developer installation
+
+Use the Python installation for your current operating system from the complete source directory.
+
+```text
+python -m venv .venv
+python -m pip install --upgrade pip
+python -m pip install -e .
+w-rookie
+```
+
+On Windows, install with `python -m pip install -e ".[hwp]"` to enable HWP/HWPX support.
+
+---
+
+<a id="en-3-quick-start"></a>
+
+## 3. Quick start
+
+For a first run, keeping the following defaults is the safest approach.
+
+1. Launch `run.bat` on Windows, `run.command` on macOS, or `./run.sh` on Linux.
+2. Select **Add Files**.
+3. Select the documents to process. DOCX is supported on all operating systems; HWP/HWPX is supported only on Windows.
+4. Select **Smart Center (Recommended)**.
+5. Leave **Resize Pictures** disabled to keep the original size. To resize, enable it and enter the width and height in `mm` or `cm`.
+6. Keep the border at black and `1.0 pt`.
+7. Select **Save as New File (Preserve Original)**.
+8. Select **Start Processing**.
+9. When processing finishes, inspect the `_사진정렬` file next to the original.
+
+Example:
+
+```text
+report.docx
+└─ report_사진정렬.docx
+```
+
+Always validate the result with a copy before processing an important original.
+
+---
+
+<a id="en-4-gui-and-features"></a>
+
+## 4. GUI and features
+
+### Document list
+
+| Control | Function |
+|---|---|
+| Add Files | Select one or more DOCX, HWP, or HWPX files. |
+| Add Folder | Add every supported document in the selected folder and its subfolders. |
+| Remove Selected | Remove only selected items from the work list. It does not delete files. |
+| Clear All | Clear the work list. It does not delete files. |
+| Status | Show queued, processing, completed, or failed status and the number of pictures processed. |
+
+Adding the same file more than once still creates only one work-list entry.
+
+### Alignment mode
+
+| Setting | Description |
+|---|---|
+| Smart Center | Center pictures naturally while preserving paragraph and table structure. |
+| Center on Page Horizontally and Vertically | Move each picture object to the exact center of the page. |
+
+### Picture size
+
+| Setting | Description |
+|---|---|
+| Resize Pictures | Disabled: preserve original dimensions. Enabled: apply the entered physical dimensions. |
+| Width / Height | Enter numeric dimensions. Either field may be left blank. |
+| mm / cm | Select the unit. For example, `35 mm` and `3.5 cm` are equal. |
+| Keep Aspect Ratio | Resize proportionally from one dimension. With both dimensions, fit the largest possible size inside that box. |
+
+Disable **Keep Aspect Ratio** only when both exact dimensions must be applied. If they differ from the original ratio, the picture may appear stretched or compressed. Each dimension must be greater than `0` and no greater than `1000 mm`.
+
+### Picture border
+
+| Setting | Description |
+|---|---|
+| Thickness | Set a value from `0.1` to `12 pt`. The default is `1.0 pt`. |
+| Line Color | Select any RGB color. The default is black. |
+
+### Other options
+
+| Option | Description |
+|---|---|
+| Process Header and Footer Pictures | Also process pictures in DOCX headers, footers, footnotes, and endnotes. |
+| Show HWP Processing Window | Show the Hangul automation window for diagnosing HWP problems. |
+| Environment Diagnostics | Check Python, the DOCX engine, and HWP/HWPX automation connectivity. |
+| Cancel | Safely stop active processing. Incomplete temporary files are removed. |
+
+---
+
+<a id="en-5-security-scanning"></a>
+
+## 5. Security scanning
+
+Every document must pass a security scan before processing. Static scanning always runs and cannot be disabled in the GUI. A document classified as dangerous is blocked before Word or Hangul automation can open it, and no output is created.
+
+### Automatically blocked content
+
+- VBA macros and HWP script storage
+- ActiveX and embedded OLE objects
+- Executable payloads such as EXE, DLL, BAT, CMD, PowerShell, and JavaScript
+- Dangerous external links using schemes such as `file:`, `javascript:`, or `ms-msdt:`
+- Path traversal and case-insensitive duplicate entries inside archives
+- Encrypted ZIP entries that cannot be inspected
+- DTDs, XML external entities, and malformed XML
+- Abnormally high compression ratios and ZIP bombs
+- Excessive entry counts, XML size, or expected extracted size
+- Corrupt documents or documents whose structure does not match their format
+
+### Content that produces a warning but may be processed
+
+- Regular HTTP/HTTPS external links
+- Custom Office ribbon configuration
+- Legacy HWP files for which static analysis is limited
+- Environments where Windows Defender command-line scanning is unavailable
+
+A file with warnings displays a `⚠` marker and explanation in the result status.
+
+### Additional Windows Defender scan
+
+When **Additional Windows Defender Scan (Recommended)** is enabled, the operating system antivirus scan runs after static analysis.
+
+- Automatic remediation and deletion are disabled so the original is not changed unexpectedly.
+- Processing is blocked when a possible threat is reported.
+- If Defender is unavailable, static scanning continues and a warning is displayed.
+
+> This is a pre-processing layer in a defense-in-depth design. It does not replace a complete antivirus product or sandbox. Keep Windows, Microsoft Defender, Word, and Hancom Office up to date.
+
+The same information is always available from the **Security Information** button at the top of the GUI.
+
+---
+
+<a id="en-6-alignment-and-picture-size"></a>
+
+## 6. Alignment and picture size
+
+### Smart Center — default and recommended
+
+- Pictures in regular paragraphs are centered horizontally within their paragraphs.
+- Pictures in tables receive horizontal paragraph alignment and vertical table-cell alignment.
+- This mode preserves the existing document flow as much as possible, making it suitable for reports, forms, and checklists.
+
+### Center on Page Horizontally and Vertically
+
+- Places a picture object in the exact center of the page, independently of its table or paragraph flow.
+- Suitable for covers or documents with one primary picture per page.
+- Multiple pictures on the same page may overlap in the center.
+
+### Setting picture width and height
+
+Leave **Resize Pictures** disabled to preserve existing dimensions. To resize, use the following patterns.
+
+| Desired result | Example input | Keep Aspect Ratio |
+|---|---|---|
+| Width 50 mm, proportional height | Width `50`, height blank, `mm` | On |
+| Height 3 cm, proportional width | Width blank, height `3`, `cm` | On |
+| Largest size inside a 50 × 30 mm box | Width `50`, height `30`, `mm` | On |
+| Exactly 50 × 30 mm | Width `50`, height `30`, `mm` | Off |
+
+When **Keep Aspect Ratio** is enabled and both values are provided, the picture is fitted inside the specified width × height area without cropping. Disable aspect-ratio preservation only when both dimensions must be forced, because doing so may distort the picture.
+
+### Recommended settings by document type
+
+| Document type | Recommended setting |
+|---|---|
+| General report | Smart Center + Keep Aspect Ratio |
+| Document with many pictures in tables | Smart Center + consistent width |
+| Exact ID-photo-style dimensions | Exact width and height + Keep Aspect Ratio off |
+| One picture per page | Center on Page + Keep Aspect Ratio |
+| Keep size and add only a border | Resize Pictures off |
+
+---
+
+<a id="en-7-saving-and-output-files"></a>
+
+## 7. Saving and output files
+
+### Save as New File — recommended
+
+- The original is not modified.
+- The default output name is `original-name_사진정렬.extension`.
+- If the name already exists, `_2`, `_3`, and so on are added automatically.
+
+```text
+report.docx
+report_사진정렬.docx
+report_사진정렬_2.docx
+```
+
+Leave the output-folder field blank to save beside the original. You can also select a separate destination with the **Folder** button.
+
+### Overwrite Original
+
+- Replaces the original with the completed result.
+- A temporary file is used until saving finishes, reducing the risk of corruption from an interrupted operation.
+- Use this only after sufficient testing and when a separate backup exists.
+
+---
+
+<a id="en-8-docx-notes"></a>
+
+## 8. DOCX notes
+
+- Microsoft Word is not required.
+- Both current DrawingML pictures and legacy VML pictures are processed.
+- Entered mm/cm values are converted to the OOXML standard unit, EMU.
+- A 1 pt border is stored as exactly `12700 EMU` under the OOXML specification.
+- Picture binaries are not re-encoded, preserving their original image quality.
+- Headers, footers, footnotes, and endnotes can optionally be processed.
+- Output files pass ZIP structure and XML safety validation before being saved.
+
+If a paragraph contains both a picture and regular text, the whole paragraph may become centered. Test important mixed-content paragraphs with a copy first.
+
+---
+
+<a id="en-9-hwp-and-hwpx-notes"></a>
+
+## 9. HWP and HWPX notes
+
+HWP/HWPX processing uses the official Windows automation interface of the installed Hancom Office Hangul application.
+
+### Before processing
+
+1. Install Hancom Office Hangul.
+2. Select **Environment Diagnostics** in W-Rookie.
+3. Confirm that the HWP/HWPX engine reports a successful Hangul automation connection.
+4. Test with a small copy of an HWP document first.
+
+Picture dimensions are converted to Hangul's internal units. Displayed values may differ slightly due to rounding by the installed Hangul version or object properties. For documents with strict specifications, verify the final values under the output object's **Properties**.
+
+### Difference in 1 pt borders
+
+Hangul supports border thicknesses as discrete steps. W-Rookie therefore applies **0.4 mm (approximately 1.13 pt)**, the closest supported value to 1 pt. The result reports when this conversion occurs.
+
+| Format | Handling of 1 pt |
+|---|---|
+| DOCX | Exact 1 pt |
+| HWP/HWPX | Closest Hangul-supported value: 0.4 mm |
+
+### If a Hangul security prompt appears
+
+- Enable **Show HWP Processing Window**.
+- Start the task again.
+- Allow file access in Hangul.
+- A company-managed PC may require administrator assistance if its security policy blocks automation.
+
+---
+
+<a id="en-10-safe-testing"></a>
+
+## 10. Safe testing
+
+### Create a synthetic sample document
+
+Generate a DOCX test file that contains no real personal information.
+
+```bat
+.venv\Scripts\python scripts\create_sample.py sample_before.docx
+```
+
+Add `sample_before.docx` to W-Rookie and process it with the defaults.
+
+Verify that:
+
+- Pictures in regular paragraphs are horizontally centered.
+- Pictures in tables are centered within their cells.
+- The requested width and height are correct.
+- A black border is present.
+- Word opens the output without a recovery warning.
+- The original file remains unchanged.
+
+### Automated tests
+
+```bat
+test.bat
+```
+
+The automated suite covers:
+
+- Smart Center and page-center placement
+- mm/cm conversion, aspect-ratio preservation, and exact dimensions
+- Exact 1 pt DOCX borders
+- Vertical table-cell alignment
+- Legacy VML pictures
+- Preservation of picture binary SHA-256 values
+- Prevention of duplicate properties across repeated runs
+- Protection against corrupt files and cancelled operations
+- Output-name collision handling
+- HWP automation parameters
+- Blocking macros, ActiveX, OLE, dangerous links, and executable payloads
+- Protection against ZIP path traversal, XML entities, and compression bombs
+
+---
+
+<a id="en-11-large-file-processing"></a>
+
+## 11. Large-file processing
+
+A DOCX document is internally a ZIP package. W-Rookie copies `word/media` data such as pictures and video in 1 MB chunks and loads only the XML that must be modified into memory.
+
+- Complete picture data is not duplicated in RAM.
+- Progress continues to update while large media is copied.
+- Cancellation is checked between files and during copying.
+- ZIP64 supports package structures larger than 4 GB.
+- GUI processing runs on a background thread.
+
+Large-file stress test:
+
+```bat
+.venv\Scripts\python scripts\stress_test.py --size-mb 512
+```
+
+Actual memory use for HWP/HWPX depends on the installed Hangul version. Close other resource-intensive applications and ensure that sufficient disk space is available.
+
+---
+
+<a id="en-12-troubleshooting"></a>
+
+## 12. Troubleshooting
+
+### `py` or Python cannot be found
+
+Install Python 3.10 or later and restart Windows. If available on the first installer screen, select:
+
+- `Add python.exe to PATH`
+- `Install launcher for all users` or Python Launcher
+
+Check the version:
+
+```bat
+py -3 --version
+python --version
+```
+
+Either command may be used if it reports Python 3.10 or later.
+
+### The `setup.bat` or `run.bat` window closes immediately
+
+Do not run the scripts from inside the ZIP. First extract all files into a new folder.
+
+1. Double-click `setup.bat`.
+2. Wait for `Setup completed successfully.`.
+3. Press any key only after the success message appears.
+4. Double-click `run.bat` in the same folder.
+
+It is normal for the Command Prompt window used by `run.bat` to close while the GUI remains open. If setup or launch fails, the window pauses and writes one of these logs:
+
+- Setup error: `setup-error.log`
+- GUI launch error: `w-rookie-error.log`
+
+If the error is still difficult to inspect, type `cmd` in the project folder's address bar, press Enter, and run:
+
+```bat
+setup.bat
+run.bat
+```
+
+Inspect the final error on screen and the log file. If you see `Python 3.10 or newer was not found`, install Python, restart Windows, and try again.
+
+### Only HWP/HWPX processing fails
+
+1. Confirm that Hancom Office Hangul is installed.
+2. Run **Environment Diagnostics**.
+3. Enable **Show HWP Processing Window**.
+4. Close the HWP file in Hangul and try again.
+
+### A file-access or save error occurs
+
+- Close the original and any existing output in Word or Hangul.
+- Test in a normal document folder rather than a read-only location.
+- For a network drive, copy the document to a local folder first.
+- Confirm that sufficient storage space is available.
+
+### A file is blocked by security scanning
+
+- Do not bypass processing for a blocked file.
+- Ask the trusted author for a new copy with macros, OLE, and ActiveX removed.
+- Open the source in the latest Word or Hangul and save it as a new DOCX/HWPX before scanning again.
+- Even if you suspect a false positive, isolate the original and have your security team or antivirus product inspect it first.
+- W-Rookie does not provide a GUI option to disable security scanning.
+
+### No pictures are found
+
+The following objects may not be recognized as regular pictures:
+
+- OLE objects
+- Charts
+- Special shapes inside groups
+- Document background images
+- Broken externally linked objects
+
+Reinsert the image as a regular picture in Word or Hangul and try again.
+
+### Pictures overlap in the center of a page
+
+Page Center moves every picture to the exact center. Use Smart Center on pages containing multiple pictures.
+
+### Output dimensions differ from the entered width and height
+
+- With **Keep Aspect Ratio** enabled and both dimensions entered, the picture fits inside the specified box, so one dimension may be smaller than its input value.
+- Disable **Keep Aspect Ratio** to force both exact values. This may distort the picture.
+- HWP/HWPX dimensions may differ by a very small amount due to Hangul's internal rounding.
+
+### Word displays a recovery message
+
+- Preserve the original and close only the output.
+- Try the same document again with Smart Center.
+- Remove personal information from a minimal reproduction document before attaching it to an Issue.
+- Do not overwrite the original.
+
+---
+
+<a id="en-13-development-testing-and-native-builds"></a>
+
+## 13. Development, testing, and native builds
+
+### Set up a development environment
+
+```bat
+py -3 -m venv .venv
+.venv\Scripts\python -m pip install -e ".[hwp,dev]"
+```
+
+The regular launch commands both open the GUI:
+
+```bat
+w-rookie
+w-rookie-gui
+```
+
+The automation-oriented CLI is a separate developer command:
+
+```bat
+w-rookie-cli --help
+```
+
+### Quality checks
+
+```bat
+.venv\Scripts\python -m unittest discover -s tests -v
+.venv\Scripts\ruff check run_gui.pyw src tests scripts
+.venv\Scripts\ruff format --check run_gui.pyw src tests scripts
+```
+
+### Build the Windows executable
+
+```bat
+build.bat
+```
+
+Output:
+
+```text
+dist\W-Rookie\W-Rookie.exe
+```
+
+Hancom Office is not bundled with the executable. It must be installed separately on any PC that processes HWP/HWPX files.
+
+### Build the macOS/Linux executable
+
+```bash
+./build.sh
+```
+
+The build for the current operating system is placed in `dist`. Cross-compilation is not used; GitHub Actions builds each executable natively on its corresponding operating-system runner.
+
+### GitHub automated tests
+
+`.github/workflows/tests.yml` runs the following on Windows, macOS, and Ubuntu with Python 3.10 and 3.12:
+
+- Unit tests
+- Ruff static analysis
+- Ruff format check
+
+Pushing a `v*` tag triggers `.github/workflows/release.yml`, which builds a Windows ZIP, macOS app ZIP, and Linux tar.gz natively and attaches them to a GitHub Release.
+
+See the [test report](docs/TEST_REPORT.md) for recent validation results and the Windows pre-release checklist.
+
+---
+
+<a id="en-14-limitations"></a>
+
+## 14. Limitations
+
+- Password-protected documents are not processed.
+- Legacy `.doc` files are not supported. Save them as `.docx` in Word first.
+- OLE objects, charts, and special shapes inside groups are not treated as pictures.
+- In Smart Center mode, a paragraph containing both a picture and text may be centered as a whole.
+- Page Center may overlap multiple pictures on the same page.
+- Disabling aspect-ratio preservation and entering dimensions with a different ratio distorts the picture.
+- HWP/HWPX automation requires Windows and an installed copy of Hancom Office Hangul.
+- Company security policy may restrict Hangul automation.
+- Static scanning and Windows Defender scanning provide defense in depth but cannot guarantee detection of every new malware family.
+
+---
+
+<a id="en-15-uninstallation-and-reset"></a>
+
+## 15. Uninstallation and reset
+
+### Uninstall the program
+
+Delete the project folder and its `.venv` folder. Generated document outputs remain unless you delete them separately.
+
+### Reset saved settings
+
+Delete the folder for your operating system:
+
+```text
+Windows:
+%APPDATA%\WRookie
+
+macOS:
+~/Library/Application Support/WRookie
+
+Linux:
+~/.config/WRookie
+```
+
+The next launch starts with the default settings.
+
+---
+
+## Privacy and safety
+
+- Documents and pictures are not uploaded to an external server.
+- Save as New File is the default.
+- A temporary file is replaced by the final output only after processing completes.
+- Incomplete temporary files from failed or cancelled operations are removed.
+- Remove personal and company information before sharing a test document.
+
+## Project structure
+
+```text
+src/docpicalign/
+├─ app.py                 # Desktop GUI
+├─ cli.py                 # Developer command-line interface
+├─ security.py            # Document pre-processing security scan
+├─ service.py             # Format-specific processing router
+└─ processors/
+   ├─ docx.py             # Low-memory OOXML processing engine
+   └─ hwp.py              # Hangul COM automation engine
+tests/                    # Automated tests
+scripts/create_sample.py  # Synthetic DOCX generator
+scripts/stress_test.py    # Large-file stress test
+```
+
+## License
 
 [MIT License](LICENSE)
