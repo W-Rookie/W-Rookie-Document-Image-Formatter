@@ -3,4 +3,4 @@
 from .models import AlignMode, BorderStyle, JobOptions, ProcessResult
 
 __all__ = ["AlignMode", "BorderStyle", "JobOptions", "ProcessResult"]
-__version__ = "1.4.1"
+__version__ = "1.4.2"

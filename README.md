@@ -16,18 +16,18 @@ W-Rookie는 문서에 들어 있는 사진을 자동으로 찾아 **가로·세�
 - 처리 방식: PC 내부 로컬 처리 — 문서 외부 전송 없음
 - 대용량 DOCX: 사진 데이터를 메모리에 펼치지 않는 스트리밍 처리
 
-일반 사용자 기능은 하나의 GUI로 통일되어 있습니다. `run.bat`, `python -m docpicalign`, `w-rookie`, `w-rookie-gui`는 모두 같은 데스크톱 화면을 실행합니다. 명령줄 인터페이스는 자동화가 필요한 개발자용으로만 별도 제공됩니다.
+일반 사용자 기능은 하나의 GUI로 통일되어 있습니다. 운영체제별 배포 실행 파일과 소스 설치 명령인 `python -m docpicalign`, `w-rookie`, `w-rookie-gui`는 모두 같은 데스크톱 화면을 실행합니다. 명령줄 인터페이스는 자동화가 필요한 개발자용으로만 별도 제공됩니다.
 
 ## 운영체제별 다운로드
 
 아래 파일은 공개 GitHub Release에서 로그인이나 별도 권한 요청 없이 받을 수 있습니다.
 
-- [Windows용 ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-Windows.zip)
-- [macOS용 ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-macOS.zip)
-- [Linux용 TAR.GZ](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-Linux.tar.gz)
-- [전체 소스 ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/archive/refs/tags/v1.4.1.zip)
-- [SHA-256 무결성 확인 파일](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/SHA256SUMS.txt)
-- [v1.4.1 릴리스 페이지](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/tag/v1.4.1)
+- [Windows용 ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.2/W-Rookie-v1.4.2-Windows.zip)
+- [macOS용 ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.2/W-Rookie-v1.4.2-macOS.zip)
+- [Linux용 TAR.GZ](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.2/W-Rookie-v1.4.2-Linux.tar.gz)
+- [전체 소스 ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/archive/refs/tags/v1.4.2.zip)
+- [SHA-256 무결성 확인 파일](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.2/SHA256SUMS.txt)
+- [v1.4.2 릴리스 페이지](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/tag/v1.4.2)
 
 ---
 
@@ -56,20 +56,19 @@ W-Rookie는 문서에 들어 있는 사진을 자동으로 찾아 **가로·세�
 ### 필수 환경
 
 - Windows 10/11, 최신 macOS 또는 데스크톱 Linux 중 하나
-- Python 3.10 이상
 - 약 200MB 이상의 설치 여유 공간
+- GitHub Release 실행 파일은 Python을 별도로 설치하지 않아도 됩니다.
+- 전체 소스로 실행하거나 개발할 때만 Python 3.10 이상이 필요합니다.
 
-| 운영체제 | 지원 문서 | 설치 | 실행 |
-|---|---|---|---|
-| Windows | DOCX, HWP, HWPX | `setup.bat` | `run.bat` |
-| macOS | DOCX | `setup.command` | `run.command` |
-| Linux | DOCX | `./setup.sh` | `./run.sh` |
+| 운영체제 | 지원 문서 | 압축 해제 후 실행 |
+|---|---|---|
+| Windows | DOCX, HWP, HWPX | `W-Rookie\W-Rookie.exe` |
+| macOS | DOCX | `W-Rookie.app` |
+| Linux | DOCX | `./W-Rookie/W-Rookie` |
 
 ### HWP/HWPX 처리 시 추가로 필요한 것
 
 - 한컴오피스 한/글이 설치된 Windows PC
-- Python용 Windows 자동화 모듈 `pywin32`
-  - `setup.bat`이 자동으로 설치합니다.
 
 DOCX만 처리할 때는 Microsoft Word와 한컴오피스가 없어도 됩니다.
 
@@ -77,37 +76,31 @@ DOCX만 처리할 때는 Microsoft Word와 한컴오피스가 없어도 됩니�
 
 ## 2. 운영체제별 설치·실행
 
-각 운영체제 이름이 붙은 ZIP을 내려받아 사용합니다. 첫 설치에는 Python 패키지를 받기 위한 인터넷 연결이 필요합니다. ZIP 내부에서 실행하지 말고 반드시 먼저 **모두 압축 풀기**를 하세요.
+각 운영체제 이름이 붙은 GitHub Release 실행 파일을 내려받아 사용합니다. 별도 Python 설치나 패키지 다운로드는 필요하지 않습니다. 압축 파일 내부에서 실행하지 말고 반드시 먼저 완전히 압축 해제하세요.
 
 ### 2-1. Windows 사용 방법
 
-대상 파일: `W-Rookie-v1.4.1-Windows.zip`
+대상 파일: `W-Rookie-v1.4.2-Windows.zip`
 
 #### 준비
 
 1. Windows 10 또는 Windows 11에서 진행합니다.
-2. [Python Windows 다운로드](https://www.python.org/downloads/windows/)에서 Python 3.10 이상을 설치합니다.
-3. Python 설치 첫 화면에서 가능하면 `Add python.exe to PATH`를 체크합니다.
-4. HWP/HWPX도 처리하려면 한컴오피스 한/글을 설치합니다. DOCX만 처리할 때는 Word나 한/글이 필요하지 않습니다.
+2. HWP/HWPX도 처리하려면 한컴오피스 한/글을 설치합니다. DOCX만 처리할 때는 Word나 한/글이 필요하지 않습니다.
 
 #### 최초 설치
 
 1. Windows용 ZIP을 마우스 오른쪽 버튼으로 누르고 **모두 압축 풀기**를 선택합니다.
-2. 압축을 푼 `W-Rookie-v1.4.1-Windows` 폴더를 엽니다.
-3. `setup.bat`을 더블클릭합니다.
-4. `[1/4]`부터 `[4/4]`까지 설치가 진행되는 동안 창을 닫지 않습니다.
-5. `Setup completed successfully.`가 표시되면 설치 성공입니다.
-6. 아무 키나 눌러 설치 창을 닫습니다.
-
-설치 실패 시 같은 폴더의 `setup-error.log`를 확인합니다. `run.bat`을 먼저 실행해도 설치 환경이 없으면 `setup.bat`이 자동으로 시작됩니다.
+2. 압축을 푼 위치에서 `W-Rookie` 폴더를 엽니다.
+3. `W-Rookie.exe`를 더블클릭합니다.
+4. 보안 경고가 나타나면 아래의 [운영체제 보안 경고 안내](#2-4-운영체제-보안-경고가-나타날-때)에 따라 파일 출처와 SHA-256을 먼저 확인합니다.
 
 #### 프로그램 실행
 
-1. 같은 폴더의 `run.bat`을 더블클릭합니다.
-2. CMD 창이 잠깐 나타났다가 닫히는 것은 정상입니다.
-3. `W-Rookie · 문서 사진 자동 편집` GUI가 나타나면 실행 성공입니다.
+1. 압축을 푼 폴더의 `W-Rookie.exe`를 더블클릭합니다.
+2. `W-Rookie · 문서 사진 자동 편집` GUI가 나타나면 실행 성공입니다.
+3. 다음 실행부터도 같은 `W-Rookie.exe`를 사용합니다.
 
-GUI가 나타나지 않으면 `w-rookie-error.log`를 확인합니다. 다음 실행부터는 `setup.bat`을 반복하지 않고 `run.bat`만 실행하면 됩니다.
+GUI가 나타나지 않으면 ZIP을 완전히 압축 해제했는지 확인하고, 파일명과 SHA-256이 공식 릴리스와 일치하는지 확인한 뒤 GitHub Issue에 사용한 Windows 버전과 화면의 오류 내용을 남겨주세요.
 
 #### Windows에서 문서 처리
 
@@ -134,39 +127,29 @@ GUI가 나타나지 않으면 `w-rookie-error.log`를 확인합니다. 다음 �
 
 ### 2-2. macOS 사용 방법
 
-대상 파일: `W-Rookie-v1.4.1-macOS.zip` — DOCX만 지원합니다.
+대상 파일: `W-Rookie-v1.4.2-macOS.zip` — DOCX만 지원합니다.
 
-1. [Python macOS 다운로드](https://www.python.org/downloads/macos/)에서 Python 3.10 이상을 설치합니다.
-2. macOS용 ZIP을 완전히 압축 해제합니다.
-3. `setup.command`를 Control-클릭하고 **열기**를 선택합니다.
-4. 설치 성공 메시지가 나오면 터미널 창을 닫습니다.
-5. `run.command`를 Control-클릭하고 **열기**를 선택합니다.
-6. GUI에서 DOCX를 추가하고 필요하면 사진 크기(mm/cm)를 지정한 뒤 스마트 중앙 정렬, 1.0pt, 새 파일 저장으로 처리합니다.
+1. macOS용 ZIP을 완전히 압축 해제합니다.
+2. `W-Rookie.app`을 Control-클릭하고 **열기**를 선택합니다.
+3. GUI에서 DOCX를 추가하고 필요하면 사진 크기(mm/cm)를 지정한 뒤 스마트 중앙 정렬, 1.0pt, 새 파일 저장으로 처리합니다.
 
-일반 실행부터는 `run.command`만 사용합니다. 터미널에서 실행하려면 압축을 푼 폴더에서 `./setup.sh`, `./run.sh`를 순서대로 사용합니다. macOS의 보안 확인창이 나타나면 **시스템 설정 → 개인정보 보호 및 보안**에서 차단 내용을 확인하세요. 출처를 모르는 파일에는 보안 예외를 적용하지 마세요.
+다음 실행부터는 `W-Rookie.app`을 사용합니다. macOS의 보안 확인창이 나타나면 **시스템 설정 → 개인정보 보호 및 보안**에서 차단 내용을 확인하세요. 출처를 모르는 파일에는 보안 예외를 적용하지 마세요.
 
 ### 2-3. Linux 사용 방법
 
-대상 파일: `W-Rookie-v1.4.1-Linux.zip` — DOCX만 지원합니다.
+대상 파일: `W-Rookie-v1.4.2-Linux.tar.gz` — DOCX만 지원합니다.
 
-1. Python 3.10 이상, `venv`, Tkinter를 설치합니다.
-2. Linux용 ZIP을 완전히 압축 해제합니다.
-3. 압축을 푼 폴더에서 터미널을 엽니다.
-4. 다음 명령을 실행합니다.
-
-```bash
-chmod +x setup.sh run.sh
-./setup.sh
-./run.sh
-```
-
-Debian/Ubuntu 계열 준비 예시:
+1. Linux용 TAR.GZ를 내려받습니다.
+2. 파일이 있는 폴더에서 터미널을 엽니다.
+3. 다음 명령을 실행합니다.
 
 ```bash
-sudo apt install python3 python3-venv python3-tk
+tar -xzf W-Rookie-v1.4.2-Linux.tar.gz
+chmod +x W-Rookie/W-Rookie
+./W-Rookie/W-Rookie
 ```
 
-다음 실행부터는 `./run.sh`만 실행합니다. 데스크톱 세션과 그래픽 화면이 필요하며, 서버 전용·SSH 전용 환경에서는 GUI가 표시되지 않을 수 있습니다.
+다음 실행부터는 `./W-Rookie/W-Rookie`만 실행합니다. 데스크톱 세션과 그래픽 화면이 필요하며, 서버 전용·SSH 전용 환경에서는 GUI가 표시되지 않을 수 있습니다.
 
 ### 2-4. 운영체제 보안 경고가 나타날 때
 
@@ -191,27 +174,27 @@ GitHub Actions에서 생성한 실행 파일은 현재 상용 코드 서명 인�
 PowerShell에서 SHA-256 확인:
 
 ```powershell
-Get-FileHash .\W-Rookie-v1.4.1-Windows.zip -Algorithm SHA256
+Get-FileHash .\W-Rookie-v1.4.2-Windows.zip -Algorithm SHA256
 ```
 
 #### macOS
 
-1. Finder에서 앱 또는 `run.command`를 Control-클릭하고 **열기**를 선택합니다.
+1. Finder에서 `W-Rookie.app`을 Control-클릭하고 **열기**를 선택합니다.
 2. 필요하면 **시스템 설정 → 개인정보 보호 및 보안 → 확인 없이 열기**를 사용합니다.
 3. `sudo spctl --master-disable`처럼 Gatekeeper 전체를 끄는 명령은 사용하지 마세요.
 
 터미널에서 SHA-256 확인:
 
 ```bash
-shasum -a 256 W-Rookie-v1.4.1-macOS.zip
+shasum -a 256 W-Rookie-v1.4.2-macOS.zip
 ```
 
 #### Linux
 
-공식 ZIP의 해시를 확인한 뒤 `chmod +x setup.sh run.sh`로 이 프로그램의 실행 권한만 부여합니다. AppArmor, SELinux 또는 배포판 보안 정책 전체를 비활성화하지 마세요.
+공식 TAR.GZ의 해시를 확인한 뒤 `chmod +x W-Rookie/W-Rookie`로 이 프로그램에만 실행 권한을 부여합니다. AppArmor, SELinux 또는 배포판 보안 정책 전체를 비활성화하지 마세요.
 
 ```bash
-sha256sum W-Rookie-v1.4.1-Linux.zip
+sha256sum W-Rookie-v1.4.2-Linux.tar.gz
 ```
 
 ### 2-5. 개발자용 공통 설치
@@ -233,7 +216,7 @@ Windows에서 HWP/HWPX도 사용하려면 `python -m pip install -e ".[hwp]"`로
 
 처음 사용하는 경우 아래 설정을 그대로 사용하는 것이 가장 안전합니다.
 
-1. Windows는 `run.bat`, macOS는 `run.command`, Linux는 `./run.sh`를 실행합니다.
+1. Windows는 `W-Rookie.exe`, macOS는 `W-Rookie.app`, Linux는 `./W-Rookie/W-Rookie`를 실행합니다.
 2. 프로그램에서 **파일 추가**를 누릅니다.
 3. 처리할 문서를 선택합니다. DOCX는 모든 운영체제에서 지원하고 HWP/HWPX는 Windows에서만 지원합니다.
 4. 정렬 기준은 **스마트 중앙 정렬(권장)**을 선택합니다.
@@ -534,28 +517,17 @@ python --version
 
 둘 중 하나에서 `Python 3.10` 이상의 버전이 나오면 됩니다.
 
-### `setup.bat` 또는 `run.bat` 창이 바로 닫힙니다
+### `W-Rookie.exe`를 실행해도 GUI가 나타나지 않습니다
 
-먼저 ZIP 파일 안에서 직접 실행하지 말고, ZIP의 압축을 새 폴더에 완전히 풉니다.
+ZIP 내부에서 직접 실행하지 말고 새 폴더에 완전히 압축을 풉니다.
 
-1. `setup.bat`을 더블클릭합니다.
-2. `Setup completed successfully.`가 표시될 때까지 기다립니다.
-3. 성공 메시지가 나온 뒤 아무 키나 눌러 설치 창을 닫습니다.
-4. 같은 폴더의 `run.bat`을 더블클릭합니다.
+1. 공식 GitHub Release에서 Windows ZIP을 다시 내려받습니다.
+2. `SHA256SUMS.txt`와 파일 해시가 일치하는지 확인합니다.
+3. ZIP 속성에 **차단 해제**가 있으면 공식 파일임을 확인한 뒤 적용합니다.
+4. **모두 압축 풀기**를 사용하고 `W-Rookie\W-Rookie.exe`를 실행합니다.
+5. 실제 악성코드 탐지명이 표시되면 보안 기능을 끄지 말고 실행을 중단합니다.
 
-`run.bat`의 CMD 창이 닫히고 GUI만 남는 것은 정상입니다. 설치나 실행에 실패하면 창이 자동으로 멈추며 다음 로그를 남깁니다.
-
-- 설치 오류: `setup-error.log`
-- GUI 시작 오류: `w-rookie-error.log`
-
-그래도 내용을 확인하기 어렵다면 프로젝트 폴더 주소창에 `cmd`를 입력하고 Enter를 누른 뒤 실행합니다.
-
-```bat
-setup.bat
-run.bat
-```
-
-화면의 마지막 오류와 위 로그 파일의 내용을 확인하세요. `Python 3.10 or newer was not found`가 나오면 Python을 설치하고 Windows를 재시작한 뒤 다시 시도합니다.
+그래도 실행되지 않으면 GitHub Issue에 Windows 버전, W-Rookie 버전, 화면에 표시된 오류와 SHA-256을 남겨주세요. 개인 문서나 개인정보가 포함된 화면은 첨부하지 마세요.
 
 ### HWP/HWPX만 실패합니다
 
@@ -760,18 +732,18 @@ W-Rookie automatically finds pictures in documents, adjusts their **physical wid
 - Local processing: documents are not uploaded to an external server
 - Large DOCX support: media data is streamed instead of being fully expanded in memory
 
-All regular user features are available through the same GUI. `run.bat`, `python -m docpicalign`, `w-rookie`, and `w-rookie-gui` open the same desktop interface. A separate command-line interface is available only for developers who need automation.
+All regular user features are available through the same GUI. The operating-system release executables and the source-install commands `python -m docpicalign`, `w-rookie`, and `w-rookie-gui` open the same desktop interface. A separate command-line interface is available only for developers who need automation.
 
 ## Downloads by operating system
 
 The following files are hosted on the public GitHub Release and can be downloaded without signing in or requesting access.
 
-- [Windows ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-Windows.zip)
-- [macOS ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-macOS.zip)
-- [Linux TAR.GZ](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-Linux.tar.gz)
-- [Complete source ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/archive/refs/tags/v1.4.1.zip)
-- [SHA-256 checksum file](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/SHA256SUMS.txt)
-- [v1.4.1 release page](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/tag/v1.4.1)
+- [Windows ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.2/W-Rookie-v1.4.2-Windows.zip)
+- [macOS ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.2/W-Rookie-v1.4.2-macOS.zip)
+- [Linux TAR.GZ](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.2/W-Rookie-v1.4.2-Linux.tar.gz)
+- [Complete source ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/archive/refs/tags/v1.4.2.zip)
+- [SHA-256 checksum file](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.2/SHA256SUMS.txt)
+- [v1.4.2 release page](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/tag/v1.4.2)
 
 ---
 
@@ -802,20 +774,19 @@ The following files are hosted on the public GitHub Release and can be downloade
 ### Required environment
 
 - Windows 10/11, a current macOS release, or desktop Linux
-- Python 3.10 or later
 - Approximately 200 MB or more of free space for installation
+- GitHub Release executables do not require a separate Python installation.
+- Python 3.10 or later is required only for running from source or development.
 
-| Operating system | Supported documents | Install | Launch |
-|---|---|---|---|
-| Windows | DOCX, HWP, HWPX | `setup.bat` | `run.bat` |
-| macOS | DOCX | `setup.command` | `run.command` |
-| Linux | DOCX | `./setup.sh` | `./run.sh` |
+| Operating system | Supported documents | Launch after extraction |
+|---|---|---|
+| Windows | DOCX, HWP, HWPX | `W-Rookie\W-Rookie.exe` |
+| macOS | DOCX | `W-Rookie.app` |
+| Linux | DOCX | `./W-Rookie/W-Rookie` |
 
 ### Additional requirements for HWP/HWPX
 
 - A Windows PC with Hancom Office Hangul installed
-- The `pywin32` Python automation module
-  - `setup.bat` installs it automatically.
 
 Microsoft Word and Hancom Office are not required when processing DOCX files only.
 
@@ -825,37 +796,31 @@ Microsoft Word and Hancom Office are not required when processing DOCX files onl
 
 ## 2. Installation and launch by operating system
 
-Download the ZIP package for your operating system. The first installation requires an internet connection to download Python packages. Do not run W-Rookie from inside the ZIP archive; **extract all files first**.
+Download the GitHub Release executable for your operating system. No separate Python installation or package download is required. Do not run W-Rookie from inside an archive; fully extract it first.
 
 ### 2-1. Windows instructions
 
-Package: `W-Rookie-v1.4.1-Windows.zip`
+Package: `W-Rookie-v1.4.2-Windows.zip`
 
 #### Preparation
 
 1. Use Windows 10 or Windows 11.
-2. Install Python 3.10 or later from [Python for Windows](https://www.python.org/downloads/windows/).
-3. If available on the first installer screen, select `Add python.exe to PATH`.
-4. Install Hancom Office Hangul if you also need HWP/HWPX support. Word or Hangul is not required for DOCX-only use.
+2. Install Hancom Office Hangul if you also need HWP/HWPX support. Word or Hangul is not required for DOCX-only use.
 
 #### First-time installation
 
 1. Right-click the Windows ZIP and select **Extract All**.
-2. Open the extracted `W-Rookie-v1.4.1-Windows` folder.
-3. Double-click `setup.bat`.
-4. Keep the window open while steps `[1/4]` through `[4/4]` complete.
-5. Installation succeeded when `Setup completed successfully.` appears.
-6. Press any key to close the installation window.
-
-If setup fails, inspect `setup-error.log` in the same folder. If you launch `run.bat` before an environment has been installed, it automatically starts `setup.bat`.
+2. Open the `W-Rookie` folder in the extracted location.
+3. Double-click `W-Rookie.exe`.
+4. If a security warning appears, first verify the source and SHA-256 as described under [operating-system security warnings](#2-4-when-the-operating-system-displays-a-security-warning).
 
 #### Launching the program
 
-1. Double-click `run.bat` in the same folder.
-2. It is normal for a Command Prompt window to appear briefly and then close.
-3. The launch succeeded when the `W-Rookie · Document Picture Auto Editor` GUI appears.
+1. Double-click `W-Rookie.exe` in the extracted folder.
+2. The launch succeeded when the `W-Rookie · Document Picture Auto Editor` GUI appears.
+3. Use the same `W-Rookie.exe` for later launches.
 
-If the GUI does not appear, inspect `w-rookie-error.log`. For later launches, run only `run.bat`; you do not need to repeat `setup.bat`.
+If the GUI does not appear, confirm that the ZIP was fully extracted and that its filename and SHA-256 match the official release. Then open a GitHub Issue with your Windows version and the displayed error.
 
 #### Processing documents on Windows
 
@@ -882,39 +847,29 @@ If the GUI does not appear, inspect `w-rookie-error.log`. For later launches, ru
 
 ### 2-2. macOS instructions
 
-Package: `W-Rookie-v1.4.1-macOS.zip` — DOCX only.
+Package: `W-Rookie-v1.4.2-macOS.zip` — DOCX only.
 
-1. Install Python 3.10 or later from [Python for macOS](https://www.python.org/downloads/macos/).
-2. Fully extract the macOS ZIP.
-3. Control-click `setup.command` and select **Open**.
-4. Close the Terminal window after the success message appears.
-5. Control-click `run.command` and select **Open**.
-6. Add DOCX files in the GUI, optionally set their dimensions in mm/cm, and process them with Smart Center, a 1.0 pt border, and Save as New File.
+1. Fully extract the macOS ZIP.
+2. Control-click `W-Rookie.app` and select **Open**.
+3. Add DOCX files in the GUI, optionally set their dimensions in mm/cm, and process them with Smart Center, a 1.0 pt border, and Save as New File.
 
-For regular use, launch only `run.command`. To use Terminal, run `./setup.sh` and then `./run.sh` from the extracted folder. If macOS shows a security prompt, inspect it under **System Settings → Privacy & Security**. Never add a security exception for a file from an unknown source.
+Use `W-Rookie.app` for later launches. If macOS shows a security prompt, inspect it under **System Settings → Privacy & Security**. Never add a security exception for a file from an unknown source.
 
 ### 2-3. Linux instructions
 
-Package: `W-Rookie-v1.4.1-Linux.zip` — DOCX only.
+Package: `W-Rookie-v1.4.2-Linux.tar.gz` — DOCX only.
 
-1. Install Python 3.10 or later, `venv`, and Tkinter.
-2. Fully extract the Linux ZIP.
-3. Open a terminal in the extracted folder.
-4. Run:
-
-```bash
-chmod +x setup.sh run.sh
-./setup.sh
-./run.sh
-```
-
-Example for Debian/Ubuntu:
+1. Download the Linux TAR.GZ.
+2. Open a terminal in the download folder.
+3. Run:
 
 ```bash
-sudo apt install python3 python3-venv python3-tk
+tar -xzf W-Rookie-v1.4.2-Linux.tar.gz
+chmod +x W-Rookie/W-Rookie
+./W-Rookie/W-Rookie
 ```
 
-For later launches, run only `./run.sh`. A graphical desktop session is required; the GUI may not appear in a server-only or SSH-only environment.
+For later launches, run only `./W-Rookie/W-Rookie`. A graphical desktop session is required; the GUI may not appear in a server-only or SSH-only environment.
 
 ### 2-4. When the operating system displays a security warning
 
@@ -939,27 +894,27 @@ Before allowing W-Rookie to run, verify all of the following:
 Check SHA-256 in PowerShell:
 
 ```powershell
-Get-FileHash .\W-Rookie-v1.4.1-Windows.zip -Algorithm SHA256
+Get-FileHash .\W-Rookie-v1.4.2-Windows.zip -Algorithm SHA256
 ```
 
 #### macOS
 
-1. In Finder, Control-click the app or `run.command` and select **Open**.
+1. In Finder, Control-click `W-Rookie.app` and select **Open**.
 2. If necessary, use **System Settings → Privacy & Security → Open Anyway**.
 3. Do not use commands such as `sudo spctl --master-disable`, which disable Gatekeeper globally.
 
 Check SHA-256 in Terminal:
 
 ```bash
-shasum -a 256 W-Rookie-v1.4.1-macOS.zip
+shasum -a 256 W-Rookie-v1.4.2-macOS.zip
 ```
 
 #### Linux
 
-After verifying the official archive's hash, use `chmod +x setup.sh run.sh` to grant execute permission only to W-Rookie's scripts. Do not disable AppArmor, SELinux, or your distribution's security policy.
+After verifying the official archive's hash, use `chmod +x W-Rookie/W-Rookie` to grant execute permission only to W-Rookie. Do not disable AppArmor, SELinux, or your distribution's security policy.
 
 ```bash
-sha256sum W-Rookie-v1.4.1-Linux.zip
+sha256sum W-Rookie-v1.4.2-Linux.tar.gz
 ```
 
 ### 2-5. Common developer installation
@@ -983,7 +938,7 @@ On Windows, install with `python -m pip install -e ".[hwp]"` to enable HWP/HWPX 
 
 For a first run, keeping the following defaults is the safest approach.
 
-1. Launch `run.bat` on Windows, `run.command` on macOS, or `./run.sh` on Linux.
+1. Launch `W-Rookie.exe` on Windows, `W-Rookie.app` on macOS, or `./W-Rookie/W-Rookie` on Linux.
 2. Select **Add Files**.
 3. Select the documents to process. DOCX is supported on all operating systems; HWP/HWPX is supported only on Windows.
 4. Select **Smart Center (Recommended)**.
@@ -1302,28 +1257,17 @@ python --version
 
 Either command may be used if it reports Python 3.10 or later.
 
-### The `setup.bat` or `run.bat` window closes immediately
+### The GUI does not appear after launching `W-Rookie.exe`
 
-Do not run the scripts from inside the ZIP. First extract all files into a new folder.
+Do not run the executable from inside the ZIP. Fully extract it into a new folder.
 
-1. Double-click `setup.bat`.
-2. Wait for `Setup completed successfully.`.
-3. Press any key only after the success message appears.
-4. Double-click `run.bat` in the same folder.
+1. Download the Windows ZIP again from the official GitHub Release.
+2. Verify its hash against `SHA256SUMS.txt`.
+3. If ZIP Properties shows **Unblock**, apply it only after verifying the official file.
+4. Use **Extract All**, then launch `W-Rookie\W-Rookie.exe`.
+5. If a specific malware detection is reported, do not disable security software; cancel the launch.
 
-It is normal for the Command Prompt window used by `run.bat` to close while the GUI remains open. If setup or launch fails, the window pauses and writes one of these logs:
-
-- Setup error: `setup-error.log`
-- GUI launch error: `w-rookie-error.log`
-
-If the error is still difficult to inspect, type `cmd` in the project folder's address bar, press Enter, and run:
-
-```bat
-setup.bat
-run.bat
-```
-
-Inspect the final error on screen and the log file. If you see `Python 3.10 or newer was not found`, install Python, restart Windows, and try again.
+If it still does not launch, open a GitHub Issue with your Windows version, W-Rookie version, displayed error, and SHA-256. Do not attach screenshots containing private documents or personal information.
 
 ### Only HWP/HWPX processing fails
 

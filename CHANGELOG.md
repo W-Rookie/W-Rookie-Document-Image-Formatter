@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.2 - 2026-11-17
+
+- Replaced restricted Google Drive download links with public GitHub Release assets.
+- Added Korean and English instructions for permission-free release downloads.
+- Published a clean patch release so tagged source documentation no longer points to private files.
+
 ## 1.4.1 - 2026-11-17
 
 - Keeps the status bar and Start button permanently visible at every supported window size
