@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "w-rookie"
+version = "1.4.1"
+description = "Batch physical picture sizing, alignment and border formatting for DOCX, HWP and HWPX"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "W-Rookie contributors"}]
+keywords = ["docx", "hwp", "hwpx", "document-automation", "ooxml", "hancom"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Operating System :: MacOS",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Office/Business :: Office Suites",
+]
+dependencies = ["defusedxml>=0.7.1", "olefile>=0.47"]
+
+[project.urls]
+Homepage = "https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter"
+Repository = "https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter.git"
+Issues = "https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/issues"
+Releases = "https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases"
+
+[project.optional-dependencies]
+hwp = ["pywin32>=306; platform_system == 'Windows'"]
+dev = ["build>=1.2", "pyinstaller>=6.0", "ruff>=0.8"]
+
+[project.scripts]
+w-rookie = "docpicalign.app:main"
+w-rookie-gui = "docpicalign.app:main"
+w-rookie-cli = "docpicalign.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+docpicalign = ["assets/*.png"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
