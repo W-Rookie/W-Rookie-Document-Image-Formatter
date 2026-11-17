@@ -162,7 +162,53 @@ sudo apt install python3 python3-venv python3-tk
 
 다음 실행부터는 `./run.sh`만 실행합니다. 데스크톱 세션과 그래픽 화면이 필요하며, 서버 전용·SSH 전용 환경에서는 GUI가 표시되지 않을 수 있습니다.
 
-### 2-4. 개발자용 공통 설치
+### 2-4. 운영체제 보안 경고가 나타날 때
+
+GitHub Actions에서 생성한 실행 파일은 현재 상용 코드 서명 인증서로 서명되지 않았기 때문에 Windows SmartScreen이나 macOS Gatekeeper가 `알 수 없는 게시자` 또는 `확인되지 않은 개발자` 경고를 표시할 수 있습니다.
+
+> **Windows Defender, SmartScreen, Gatekeeper, 방화벽, AppArmor 또는 SELinux를 통째로 끄는 방법은 권장하지 않습니다.** 보안 기능을 끄면 W-Rookie와 관계없는 악성 파일까지 실행될 수 있습니다.
+
+예외 실행 전에는 다음을 먼저 확인하세요.
+
+1. [공식 GitHub Releases](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases)에서 받은 파일인지 확인합니다.
+2. 릴리스의 `SHA256SUMS.txt`와 다운로드한 파일의 SHA-256 값이 같은지 확인합니다.
+3. 파일명과 버전이 예상한 W-Rookie 릴리스와 일치하는지 확인합니다.
+4. 백신이 구체적인 악성코드명을 탐지하면 예외 처리하지 말고 실행을 중단한 뒤 GitHub Issue에 탐지명과 SHA-256을 신고합니다.
+
+#### Windows 10/11
+
+1. ZIP 파일을 우클릭하고 **속성**을 엽니다.
+2. 공식 릴리스와 해시가 일치할 때만 하단의 **차단 해제**가 있으면 체크하고 적용합니다.
+3. SmartScreen 경고가 나오면 **추가 정보**에서 파일명과 게시자를 다시 확인한 뒤 **실행**을 선택합니다.
+4. Defender가 실제 위협을 탐지한 경우 Defender를 끄지 말고 실행을 취소합니다.
+
+PowerShell에서 SHA-256 확인:
+
+```powershell
+Get-FileHash .\W-Rookie-v1.4.1-Windows.zip -Algorithm SHA256
+```
+
+#### macOS
+
+1. Finder에서 앱 또는 `run.command`를 Control-클릭하고 **열기**를 선택합니다.
+2. 필요하면 **시스템 설정 → 개인정보 보호 및 보안 → 확인 없이 열기**를 사용합니다.
+3. `sudo spctl --master-disable`처럼 Gatekeeper 전체를 끄는 명령은 사용하지 마세요.
+
+터미널에서 SHA-256 확인:
+
+```bash
+shasum -a 256 W-Rookie-v1.4.1-macOS.zip
+```
+
+#### Linux
+
+공식 ZIP의 해시를 확인한 뒤 `chmod +x setup.sh run.sh`로 이 프로그램의 실행 권한만 부여합니다. AppArmor, SELinux 또는 배포판 보안 정책 전체를 비활성화하지 마세요.
+
+```bash
+sha256sum W-Rookie-v1.4.1-Linux.zip
+```
+
+### 2-5. 개발자용 공통 설치
 
 전체 소스 폴더에서 현재 운영체제의 Python을 사용합니다.
 
