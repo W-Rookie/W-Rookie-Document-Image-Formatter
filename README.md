@@ -20,10 +20,14 @@ W-Rookie는 문서에 들어 있는 사진을 자동으로 찾아 **가로·세�
 
 ## 운영체제별 다운로드
 
-- [Windows용 ZIP](https://drive.google.com/file/d/10pr_sQveMl3ituhoDNJpSS3kXQBtQ1Lk/view?usp=drivesdk)
-- [macOS용 ZIP](https://drive.google.com/file/d/1MFm6Afebd-pldynQ5diHQOr4dMXuxIbS/view?usp=drivesdk)
-- [Linux용 ZIP](https://drive.google.com/file/d/1Bt4AmIgCE9-aVGxa8OXUWrtrEqdmBkB0/view?usp=drivesdk)
-- [GitHub 업로드용 전체 소스](https://drive.google.com/file/d/1wEf-H_U-wUQqagWPwvtXjti1kwUGmin1/view?usp=drivesdk)
+아래 파일은 공개 GitHub Release에서 로그인이나 별도 권한 요청 없이 받을 수 있습니다.
+
+- [Windows용 ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-Windows.zip)
+- [macOS용 ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-macOS.zip)
+- [Linux용 TAR.GZ](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-Linux.tar.gz)
+- [전체 소스 ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/archive/refs/tags/v1.4.1.zip)
+- [SHA-256 무결성 확인 파일](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/SHA256SUMS.txt)
+- [v1.4.1 릴리스 페이지](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/tag/v1.4.1)
 
 ---
 
@@ -760,10 +764,14 @@ All regular user features are available through the same GUI. `run.bat`, `python
 
 ## Downloads by operating system
 
-- [Windows ZIP](https://drive.google.com/file/d/10pr_sQveMl3ituhoDNJpSS3kXQBtQ1Lk/view?usp=drivesdk)
-- [macOS ZIP](https://drive.google.com/file/d/1MFm6Afebd-pldynQ5diHQOr4dMXuxIbS/view?usp=drivesdk)
-- [Linux ZIP](https://drive.google.com/file/d/1Bt4AmIgCE9-aVGxa8OXUWrtrEqdmBkB0/view?usp=drivesdk)
-- [Complete source package for GitHub](https://drive.google.com/file/d/1wEf-H_U-wUQqagWPwvtXjti1kwUGmin1/view?usp=drivesdk)
+The following files are hosted on the public GitHub Release and can be downloaded without signing in or requesting access.
+
+- [Windows ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-Windows.zip)
+- [macOS ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-macOS.zip)
+- [Linux TAR.GZ](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/W-Rookie-v1.4.1-Linux.tar.gz)
+- [Complete source ZIP](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/archive/refs/tags/v1.4.1.zip)
+- [SHA-256 checksum file](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/download/v1.4.1/SHA256SUMS.txt)
+- [v1.4.1 release page](https://github.com/W-Rookie/W-Rookie-Document-Image-Formatter/releases/tag/v1.4.1)
 
 ---
 
